@@ -11,7 +11,6 @@ class Product(models.Model):
     category = models.ManyToManyField(
         Category,
         related_name="products",
-        null=True,
         blank=True,
     )
 

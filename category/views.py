@@ -10,7 +10,7 @@ from django.shortcuts import get_object_or_404
 def categories_list(request):
     if request.method == "GET":
         all_categories = CategorySerializer(
-            Category.objects.all().order_by("-popularity").values(), many=True
+            Category.objects.all().order_by("-popularity"), many=True
         ).data
         return Response(all_categories)
 
