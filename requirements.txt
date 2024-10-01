@@ -40,11 +40,13 @@ platformdirs==4.2.2
 prompt_toolkit==3.0.47
 psutil==5.9.8
 psycopg2==2.9.9
+psycopg2-binary==2.9.9
 pure_eval==0.2.3
 pycparser==2.22
 Pygments==2.18.0
 PyJWT==2.9.0
 python-dateutil==2.9.0.post0
+python-decouple==3.8
 python-dotenv==1.0.1
 pyzmq==26.0.3
 redis==5.0.8
