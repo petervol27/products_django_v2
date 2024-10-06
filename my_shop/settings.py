@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     "category",
     "rest_framework",
     "corsheaders",
+    "cart",
+    "user",
+    "rest_framework_simplejwt",
 ]
 
 MIDDLEWARE = [
@@ -129,9 +132,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 MEDIA_URL = "/images/"
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+
 MEDIA_ROOT = BASE_DIR / "static/images"
 STATIC_ROOT = "https://petervol27.github.io/shop_static/static"
 # Default primary key field type
@@ -140,3 +141,9 @@ STATIC_ROOT = "https://petervol27.github.io/shop_static/static"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ],
+}
