@@ -7,6 +7,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 
+
 # Create your views here.
 @api_view(["POST"])
 def register(request):
@@ -22,6 +23,7 @@ def register(request):
 def login(request):
     username = request.data.get("username")
     password = request.data.get("password")
+    print(request.data)
     user = authenticate(request, username=username, password=password)
     if user is not None:
         refresh = RefreshToken.for_user(user)
@@ -39,9 +41,12 @@ def login(request):
             {"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED
         )
 
+
 @api_view(["GET"])
-def fetch_all(request):
-    users = User.objects.all()
-    print(users)
-    serializer = UserSerializer(users,many=True).data
-    return Response(serializer)
+def check_login(request):
+    cookie = request.COOKIES.get("accessToken")
+    print(cookie)
+    if cookie:
+        print("yay")
+    else:
+        print("nay")
