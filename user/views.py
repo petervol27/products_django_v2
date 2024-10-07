@@ -23,7 +23,6 @@ def register(request):
 def login(request):
     username = request.data.get("username")
     password = request.data.get("password")
-    print(request.data)
     user = authenticate(request, username=username, password=password)
     if user is not None:
         refresh = RefreshToken.for_user(user)
@@ -32,7 +31,7 @@ def login(request):
             "accessToken",
             str(refresh.access_token),
             httponly=True,
-            secure=True,
+            secure=False,
             samesite="None",
         )
         return response
@@ -45,8 +44,9 @@ def login(request):
 @api_view(["GET"])
 def check_login(request):
     cookie = request.COOKIES.get("accessToken")
-    print(cookie)
     if cookie:
-        print("yay")
+        return Response({"message": "valid user"}, status=status.HTTP_200_OK)
     else:
-        print("nay")
+        return Response(
+            {"error": "No user Exists"}, status=status.HTTP_401_UNAUTHORIZED
+        )
