@@ -134,7 +134,7 @@ STATIC_URL = "/static/"
 MEDIA_URL = "/images/"
 
 MEDIA_ROOT = BASE_DIR / "static/images"
-STATIC_ROOT = "https://petervol27.github.io/shop_static/static"
+STATIC_ROOT = BASE_DIR / "static/images"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
