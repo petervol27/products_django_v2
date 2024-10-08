@@ -22,6 +22,7 @@ Flask==3.0.3
 Flask-Cors==4.0.1
 Flask-Session==0.8.0
 gunicorn==23.0.0
+h11==0.14.0
 ipykernel==6.29.4
 ipython==8.27.0
 itsdangerous==2.2.0
@@ -58,6 +59,7 @@ stack-data==0.6.3
 tornado==6.4
 traitlets==5.14.3
 tzdata==2024.1
+uvicorn==0.31.0
 virtualenv==20.26.2
 wcwidth==0.2.13
 Werkzeug==3.0.3
